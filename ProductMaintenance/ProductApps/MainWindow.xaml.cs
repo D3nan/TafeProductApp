@@ -31,13 +31,15 @@ namespace ProductApps
         {
             try
             {
-                cProduct = new Product(Convert.ToDecimal(priceTextBox.Text), Convert.ToInt16(quantityTextBox.Text));
+                cProduct = new Product(Convert.ToDouble(priceTextBox.Text), Convert.ToDouble(quantityTextBox.Text));
                 cProduct.calTotalPayment();
                 cProduct.calTotalCharge();
                 cProduct.calTotalChargeWrap();
+                cProduct.calTotalChargeGST();
                 totalPaymentTextBlock.Text = Convert.ToString(cProduct.TotalPayment);
                 totalChargeTextBox.Text = Convert.ToString(cProduct.TotalCharge);
                 totalChargeWrapTextBox.Text = Convert.ToString(cProduct.TotalChargeWrap);
+                totalChargeGSTTextBox.Text = Convert.ToString(cProduct.TotalChargeGST);
             }
             catch (FormatException)
             {
@@ -53,6 +55,7 @@ namespace ProductApps
             totalPaymentTextBlock.Text = "";
             totalChargeTextBox.Text = "";
             totalChargeWrapTextBox.Text = "";
+            totalChargeGSTTextBox.Text = "";
         }
 
         private void closeButton_Click(object sender, RoutedEventArgs e)

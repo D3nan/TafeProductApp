@@ -8,65 +8,73 @@ namespace ProductApps
 {
     class Product
     {
-        private decimal price;
-        private int quantity;
-        private decimal totalPayment;
-        private decimal delivery;
-        private decimal wrapping;
-        private decimal gst;
-        private decimal totalCharge;
-        private decimal totalChargeWrap;
+        private double price;
+        private double quantity;
+        private double totalPayment;
+        private double delivery;
+        private double wrapping;
+        private double gst;
+        private double totalCharge;
+        private double totalChargeWrap;
+        private double totalChargeGST;
 
-        private decimal Price
+        private double Price
         {
             get { return price; }
             set { price = value; }
         }
 
-        private int Quantity
+        private double Quantity
         {
             get { return quantity; }
             set { quantity = value; }
         }
 
-        public decimal TotalPayment
+        public double TotalPayment
         {
             get { return totalPayment; }
             set { totalPayment = value; }
         }
-        public decimal TotalCharge
+        public double TotalCharge
         {
             get { return totalCharge; }
             set { totalCharge = value; }
         }
 
-        public decimal TotalChargeWrap
+        public double TotalChargeWrap
         {
             get { return totalChargeWrap; }
             set { totalChargeWrap = value; }
         }
 
-        private decimal Delivery
+        public double TotalChargeGST
+        {
+            get { return totalChargeGST; }
+            set { totalChargeGST = value; }
+        }
+
+
+        private double Delivery
         {
             get { return delivery; }
             set { delivery = value; }
         }
 
 
-        private decimal Wrapping
+        private double Wrapping
         {
             get { return wrapping; }
             set { wrapping = value; }
         }
 
-        private decimal GST
+        private double GST
         {
             get { return gst; }
             set { gst = value; }
         }
 
         //Constructor for Product
-        public Product(decimal price, int quantity)
+        public Product(double price, double quantity)
         {
             Price = price;
             Quantity = quantity;
@@ -88,6 +96,12 @@ namespace ProductApps
         public void calTotalChargeWrap()
         {
             TotalChargeWrap = TotalPayment + 25 + 5;
+        }
+
+        //Calculate the total charge with GST
+        public void calTotalChargeGST()
+        {
+            TotalChargeGST = TotalChargeWrap * 1.1;
         }
     }
 }
